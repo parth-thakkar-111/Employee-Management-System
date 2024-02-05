@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>Mark Attendance</title>
+<link rel="stylesheet" type="text/css" th:href="@{/webjars/bootstrap/5.1.3/css/bootstrap.min.css}">
+<script type="text/javascript" th:src="@{/webjars/bootstrap/5.1.3/js/bootstrap.min.js}"></script>
+<script type="text/javascript" th:src="@{/webjars/jquery/3.6.0/jquery.min.js}"></script>
+</head>
+<body>
+ <div class="container-fluid">
+ <br>
+ <br>
+ <h2 align="center">Enter Details To Mark Attendance</h2>
+	<form th:action="@{/attendance/apply/save}" method="post" th:object="${attendance}" style="max-width:700px; margin:0 auto">
+	<input type="hidden" th:field="*{employeeId}">
+	<div class="border border-secondary rounded p-3">
+
+		
+	<div class="form-group row">
+	  <label class="col-sm-4 col-form-label">Attendance Category</label>
+	  <div class="col-sm-8">
+	  <select th:field="*{attendanceCategory}">
+	  <option value="WFH_IN">WHF-IN</option>
+	  <option value="WFH_OUT">WFH-OUT</option>
+	  <option value="SIGN_IN_FROM_OFFICE">SIGN-IN-FROM-OFFICE</option>
+	  <option value="SIGN_OUT_FROM_OFFICE">SIGN-OUT-FROM-OFFICE</option>
+	  </select> 
+	  </div>
+	</div>
+	
+	<div class="text-center" >
+	<input type="submit" class="btn btn-primary" value="Submit">
+	</div>
+	
+	</div>
+	</form>
+	</div>
+</body>
+</html>
